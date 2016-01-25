@@ -1,10 +1,16 @@
 from insider import insider
 import datetime
+import argparse
 
 host = insider("redbull")
 
 #print host.check_ip(raw_input("Enter IP: "))
 
-#print host.check_volume()
+parser = argparse.ArgumentParser(description='check services.')
+parser.add_argument("-v", "--volume", help="print string")
+args = parser.parse_args()
 
-print host.check_firewall_log()
+if args.volume == "check":
+    print host.check_volume()
+
+#print host.check_firewall_log()
